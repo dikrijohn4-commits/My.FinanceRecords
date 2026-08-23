@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080a0f">
+
+  <title>MyFinance</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app-shell">
+
+  <!-- ================= TOPBAR ================= -->
+
+  <header class="topbar">
+
+    <div class="brand">
+
+      <div class="brand-mark">
+        <svg viewBox="0 0 24 24">
+          <path d="M4 17V7"></path>
+          <path d="M8 17v-5"></path>
+          <path d="M12 17V4"></path>
+          <path d="M16 17v-8"></path>
+          <path d="M20 17v-11"></path>
+        </svg>
+      </div>
+
+      <div>
+        <strong>MyFinanceRecords</strong>
+        <span>Portfolio Tracker</span>
+        <span>D&R</span>
+      </div>
+
+    </div>
+
+    <button
+      class="avatar-btn"
+      id="topAvatarBtn"
+      aria-label="Buka profil">
+
+      <img
+        id="topAvatar"
+        src=""
+        alt="Foto profil">
+
+    </button>
+
+  </header>
+
+
+  <!-- ================= CONTENT ================= -->
+
+  <main class="content">
+
+
+    <!-- ================= HOME ================= -->
+
+    <section
+      class="page active"
+      id="page-home">
+
+      <div class="welcome-row">
+
+        <div>
+
+          <p class="eyebrow">
+            Dashboard
+          </p>
+
+          <h1>
+            Halo, <span id="welcomeName">Pengguna</span>
+          </h1>
+
+          <p class="muted">
+            Ringkasan portfolio kamu
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- TOTAL ASSETS -->
+
+      <div class="hero-card">
+
+        <div class="hero-glow"></div>
+
+        <div class="hero-top">
+
+          <div>
+            <span>Total Portfolio</span>
+
+            <small>
+              Trading + Investasi
+            </small>
+          </div>
+
+          <div
+            class="performance-badge neutral"
+            id="homePerformanceBadge">
+            0%
+          </div>
+
+        </div>
+
+
+        <strong
+          class="hero-value"
+          id="homeTotalAssets">
+          Rp 0
+        </strong>
+
+
+        <div class="hero-performance">
+
+          <span>
+            Performa
+          </span>
+
+          <strong
+            id="homePerformance">
+            0%
+          </strong>
+
+        </div>
+
+
+        <div class="hero-particles">
+
+          <i></i>
+          <i></i>
+          <i></i>
+          <i></i>
+          <i></i>
+          <i></i>
+          <i></i>
+          <i></i>
+
+        </div>
+
+      </div>
+
+
+      <!-- TOTAL BREAKDOWN -->
+
+      <div class="section-title">
+
+        <h2>
+          Ringkasan
+        </h2>
+
+      </div>
+
+
+      <div class="stats-grid">
+
+        <button
+          class="stat-box card clickable-stat"
+          data-go="trading">
+
+          <span>
+            Trading
+          </span>
+
+          <strong id="homeTradingIDR">
+            Rp 0
+          </strong>
+
+          <small id="homeTradingUSD">
+            $0.00
+          </small>
+
+        </button>
+
+
+        <button
+          class="stat-box card clickable-stat"
+          data-go="investment">
+
+          <span>
+            Investasi
+          </span>
+
+          <strong id="homeInvestmentValue">
+            Rp 0
+          </strong>
+
+          <small id="homeInvestmentPL">
+            Rp 0
+          </small>
+
+        </button>
+
+
+        <div class="stat-box card">
+
+          <span>
+            Modal Trading
+          </span>
+
+          <strong id="homeTradingCapital">
+            $0.00
+          </strong>
+
+          <small>
+            Modal awal
+          </small>
+
+        </div>
+
+
+        <div class="stat-box card">
+
+          <span>
+            Modal Investasi
+          </span>
+
+          <strong id="homeInvestmentCapital">
+            Rp 0
+          </strong>
+
+          <small>
+            Total modal
+          </small>
+
+        </div>
+
+      </div>
+
+
+      <!-- CALENDAR -->
+
+      <div class="section-title">
+
+        <h2>
+          Aktivitas
+        </h2>
+
+      </div>
+
+      <div
+        class="card calendar-card"
+        id="homeCalendar">
+      </div>
+
+
+      <!-- CHART -->
+
+      <div class="card chart-card">
+
+        <div class="card-heading">
+
+          <div>
+
+            <h2>
+              Perkembangan Portfolio
+            </h2>
+
+            <p class="muted">
+              Riwayat perubahan nilai
+            </p>
+
+          </div>
+
+        </div>
+
+        <canvas id="homeChart"></canvas>
+
+      </div>
+
+
+      <!-- PROFIT / LOSS -->
+
+      <div class="two-col">
+
+        <div class="summary-tile card">
+
+          <div class="tile-icon positive-bg">
+
+            <svg viewBox="0 0 24 24">
+              <path d="M4 17l6-6 4 4 6-8"></path>
+              <path d="M15 7h5v5"></path>
+            </svg>
+
+          </div>
+
+          <span>
+            Total Profit
+          </span>
+
+          <strong
+            id="homeProfit"
+            class="positive">
+            Rp 0
+          </strong>
+
+        </div>
+
+
+        <div class="summary-tile card">
+
+          <div class="tile-icon negative-bg">
+
+            <svg viewBox="0 0 24 24">
+              <path d="M4 7l6 6 4-4 6 8"></path>
+              <path d="M15 17h5v-5"></path>
+            </svg>
+
+          </div>
+
+          <span>
+            Total Loss
+          </span>
+
+          <strong
+            id="homeLoss"
+            class="negative">
+            Rp 0
+          </strong>
+
+        </div>
+
+      </div>
+
+
+      <!-- PROFILE SUMMARY -->
+
+      <div class="card profile-summary">
+
+        <div class="profile-info">
+
+          <img
+            class="avatar large"
+            id="homeProfileAvatar"
+            src=""
+            alt="Foto profil">
+
+          <div>
+
+            <p class="eyebrow">
+              Profil
+            </p>
+
+            <h2 id="summaryName">
+              Pengguna
+            </h2>
+
+            <p
+              class="muted"
+              id="summaryBio">
+              Trader & investor
+            </p>
+
+          </div>
+
+        </div>
+
+        <button
+          class="small-icon-btn"
+          id="homeEditProfile"
+          aria-label="Edit profil">
+
+          <svg viewBox="0 0 24 24">
+            <path d="M12 20h9"></path>
+            <path d="M16.5 3.5a2.1 2.1 0 013 3L8 18l-4 1 1-4z"></path>
+          </svg>
+
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= TRADING ================= -->
+
+    <section
+      class="page"
+      id="page-trading">
+
+      <div class="page-heading">
+
+        <div>
+
+          <p class="eyebrow">
+            Forex
+          </p>
+
+          <h1>
+            Trading
+          </h1>
+
+          <p class="muted">
+            Semua nilai menggunakan USD
+          </p>
+
+        </div>
+
+        <button
+          class="primary-btn"
+          id="openTradingForm">
+          + Transaksi
+        </button>
+
+      </div>
+
+
+      <div class="card account-card">
+
+        <div>
+
+          <span>
+            Saldo Trading
+          </span>
+
+          <strong id="tradingBalanceUSD">
+            $0.00
+          </strong>
+
+          <small id="tradingBalanceIDR">
+            ≈ Rp 0
+          </small>
+
+        </div>
+
+        <div
+          class="performance-badge neutral"
+          id="tradingBadge">
+          0%
+        </div>
+
+      </div>
+
+
+      <div class="stats-grid">
+
+        <div class="stat-box card">
+
+          <span>
+            Modal
+          </span>
+
+          <strong id="tradingCapital">
+            $0.00
+          </strong>
+
+        </div>
+
+        <div class="stat-box card">
+
+          <span>
+            Profit/Loss
+          </span>
+
+          <strong id="tradingPL">
+            $0.00
+          </strong>
+
+        </div>
+
+      </div>
+
+
+      <div class="card chart-card">
+
+        <h2>
+          Performa Trading
+        </h2>
+
+        <p class="muted">
+          Pergerakan saldo trading
+        </p>
+
+        <canvas id="tradingChart"></canvas>
+
+      </div>
+
+
+      <div class="section-title">
+
+        <h2>
+          Transaksi
+        </h2>
+
+        <span
+          class="muted"
+          id="tradingCount">
+          0 transaksi
+        </span>
+
+      </div>
+
+
+      <div
+        class="card list-card"
+        id="tradingList">
+      </div>
+
+    </section>
+
+
+    <!-- ================= INVESTMENT ================= -->
+
+    <section
+      class="page"
+      id="page-investment">
+
+      <div class="page-heading">
+
+        <div>
+
+          <p class="eyebrow">
+            Portfolio
+          </p>
+
+          <h1>
+            Investasi
+          </h1>
+
+          <p class="muted">
+            Setiap instrumen memiliki modal sendiri
+          </p>
+
+        </div>
+
+        <button
+          class="primary-btn"
+          id="openInvestmentForm">
+          + Investasi
+        </button>
+
+      </div>
+
+
+      <div class="card account-card">
+
+        <div>
+
+          <span>
+            Nilai Investasi
+          </span>
+
+          <strong id="investmentTotalValue">
+            Rp 0
+          </strong>
+
+          <small id="investmentTotalPL">
+            Rp 0
+          </small>
+
+        </div>
+
+        <div
+          class="performance-badge neutral"
+          id="investmentBadge">
+          0%
+        </div>
+
+      </div>
+
+
+      <div class="stats-grid">
+
+        <div class="stat-box card">
+
+          <span>
+            Total Modal
+          </span>
+
+          <strong id="investmentCapital">
+            Rp 0
+          </strong>
+
+        </div>
+
+        <div class="stat-box card">
+
+          <span>
+            Jumlah Instrumen
+          </span>
+
+          <strong id="investmentCount">
+            0
+          </strong>
+
+        </div>
+
+      </div>
+
+
+      <div class="card chart-card">
+
+        <h2>
+          Performa Investasi
+        </h2>
+
+        <p class="muted">
+          Perubahan nilai portfolio
+        </p>
+
+        <canvas id="investmentChart"></canvas>
+
+      </div>
+
+
+      <div class="section-title">
+
+        <h2>
+          Portfolio
+        </h2>
+
+      </div>
+
+
+      <div
+        class="card list-card"
+        id="investmentList">
+      </div>
+
+    </section>
+
+
+    <!-- ================= STATISTICS ================= -->
+
+    <section
+      class="page"
+      id="page-statistics">
+
+      <div class="page-heading">
+
+        <div>
+
+          <p class="eyebrow">
+            Analytics
+          </p>
+
+          <h1>
+            Statistik
+          </h1>
+
+          <p class="muted">
+            Gambaran keseluruhan portfolio
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="card statistics-hero">
+
+        <div class="stat-orbit">
+
+          <span></span>
+          <span></span>
+          <span></span>
+
+        </div>
+
+        <p>
+          Performa Keseluruhan
+        </p>
+
+        <strong id="statPerformance">
+          0%
+        </strong>
+
+        <small id="statPerformanceText">
+          Belum ada perubahan
+        </small>
+
+      </div>
+
+
+      <div class="stats-grid">
+
+        <div class="stat-box card">
+
+          <span>
+            Total Aset
+          </span>
+
+          <strong id="statAssets">
+            Rp 0
+          </strong>
+
+        </div>
+
+        <div class="stat-box card">
+
+          <span>
+            Profit
+          </span>
+
+          <strong
+            id="statProfit"
+            class="positive">
+            Rp 0
+          </strong>
+
+        </div>
+
+        <div class="stat-box card">
+
+          <span>
+            Loss
+          </span>
+
+          <strong
+            id="statLoss"
+            class="negative">
+            Rp 0
+          </strong>
+
+        </div>
+
+        <div class="stat-box card">
+
+          <span>
+            Aktivitas
+          </span>
+
+          <strong id="statActivity">
+            0
+          </strong>
+
+        </div>
+
+      </div>
+
+
+      <div class="card chart-card">
+
+        <h2>
+          Profit vs Loss
+        </h2>
+
+        <p class="muted">
+          Perbandingan hasil portfolio
+        </p>
+
+        <canvas id="statisticsChart"></canvas>
+
+      </div>
+
+
+      <div class="section-title">
+
+        <h2>
+          Detail
+        </h2>
+
+      </div>
+
+
+      <div class="stats-grid">
+
+        <div class="stat-box card">
+
+          <span>
+            Trading P/L
+          </span>
+
+          <strong id="statTradingPL">
+            $0.00
+          </strong>
+
+        </div>
+
+        <div class="stat-box card">
+
+          <span>
+            Investasi P/L
+          </span>
+
+          <strong id="statInvestmentPL">
+            Rp 0
+          </strong>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= PROFILE ================= -->
+
+    <section
+      class="page"
+      id="page-profile">
+
+      <div class="page-heading">
+
+        <div>
+
+          <p class="eyebrow">
+            Account
+          </p>
+
+          <h1>
+            Profil
+          </h1>
+
+          <p class="muted">
+            Atur identitas dan modal portfolio
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="card profile-edit">
+
+        <button
+          class="avatar-upload"
+          id="profileAvatarBtn"
+          aria-label="Ganti foto profil">
+
+          <img
+            id="profileAvatar"
+            src=""
+            alt="Foto profil">
+
+          <span>
+            Ganti foto
+          </span>
+
+        </button>
+
+        <input
+          type="file"
+          id="profileImageInput"
+          accept="image/*"
+          hidden>
+
+
+        <label>
+
+          Nama
+
+          <input
+            id="profileNameInput"
+            type="text"
+            maxlength="40"
+            placeholder="Nama kamu">
+
+        </label>
+
+
+        <label>
+
+          Bio
+
+          <input
+            id="profileBioInput"
+            type="text"
+            maxlength="70"
+            placeholder="Trader & investor">
+
+        </label>
+
+
+        <div class="form-divider">
+          Modal Portfolio
+        </div>
+
+
+        <label>
+
+          Modal Trading
+
+          <input
+            id="tradingCapitalInput"
+            type="number"
+            min="0"
+            step="0.01"
+            placeholder="Contoh: 200">
+
+          <small class="form-help">
+            Khusus trading Forex dalam USD.
+          </small>
+
+        </label>
+
+
+        <label>
+
+          Modal Investasi
+
+          <input
+            id="investmentCapitalInput"
+            type="number"
+            min="0"
+            step="1000"
+            placeholder="Contoh: 5000000">
+
+          <small class="form-help">
+            Hanya menjadi informasi modal awal investasi.
+            Modal setiap instrumen tetap dihitung terpisah.
+          </small>
+
+        </label>
+
+
+        <label>
+
+          Kurs USD → IDR
+
+          <input
+            id="exchangeRateInput"
+            type="number"
+            min="1"
+            step="1"
+            placeholder="Contoh: 16000">
+
+          <small class="form-help">
+            Digunakan untuk menampilkan nilai trading dalam Rupiah.
+          </small>
+
+        </label>
+
+
+        <button
+          class="primary-btn full"
+          id="saveProfileBtn">
+          Simpan Perubahan
+        </button>
+
+
+        <p
+          class="success-note"
+          id="profileSaved">
+        </p>
+
+      </div>
+
+
+      <div class="section-title">
+
+        <h2>
+          Kalender
+        </h2>
+
+      </div>
+
+      <div
+        class="card calendar-card"
+        id="profileCalendar">
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ================= BOTTOM NAV ================= -->
+
+  <nav class="bottom-nav">
+
+    <button
+      class="nav-item active"
+      data-page="home">
+
+      <span class="nav-icon">
+
+        <svg viewBox="0 0 24 24">
+          <path d="M3 10.5L12 3l9 7.5"></path>
+          <path d="M5 9.5V21h14V9.5"></path>
+        </svg>
+
+      </span>
+
+      <span>
+        Beranda
+      </span>
+
+    </button>
+
+
+    <button
+      class="nav-item"
+      data-page="trading">
+
+      <span class="nav-icon">
+
+        <svg viewBox="0 0 24 24">
+          <path d="M4 18V8"></path>
+          <path d="M8 18v-5"></path>
+          <path d="M12 18V5"></path>
+          <path d="M16 18v-8"></path>
+          <path d="M20 18V3"></path>
+        </svg>
+
+      </span>
+
+      <span>
+        Trading
+      </span>
+
+    </button>
+
+
+    <button
+      class="nav-item"
+      data-page="investment">
+
+      <span class="nav-icon">
+
+        <svg viewBox="0 0 24 24">
+          <path d="M4 19V5"></path>
+          <path d="M4 19h16"></path>
+          <path d="M7 15l4-4 3 2 5-7"></path>
+        </svg>
+
+      </span>
+
+      <span>
+        Investasi
+      </span>
+
+    </button>
+
+
+    <button
+      class="nav-item"
+      data-page="statistics">
+
+      <span class="nav-icon">
+
+        <svg viewBox="0 0 24 24">
+          <path d="M4 19V5"></path>
+          <path d="M4 19h16"></path>
+          <path d="M8 16v-4"></path>
+          <path d="M12 16V8"></path>
+          <path d="M16 16v-6"></path>
+        </svg>
+
+      </span>
+
+      <span>
+        Statistik
+      </span>
+
+    </button>
+
+
+    <button
+      class="nav-item"
+      data-page="profile">
+
+      <span class="nav-icon">
+
+        <svg viewBox="0 0 24 24">
+          <circle cx="12" cy="8" r="4"></circle>
+          <path d="M4 21c1.5-5 14.5-5 16 0"></path>
+        </svg>
+
+      </span>
+
+      <span>
+        Profil
+      </span>
+
+    </button>
+
+  </nav>
+
+</div>
+
+
+<!-- ================= TRADING MODAL ================= -->
+
+<div
+  class="modal"
+  id="tradingModal">
+
+  <div
+    class="modal-backdrop"
+    data-close="tradingModal">
+  </div>
+
+  <div class="modal-panel">
+
+    <div class="modal-head">
+
+      <div>
+
+        <p class="eyebrow">
+          Forex
+        </p>
+
+        <h2 id="tradingModalTitle">
+          Tambah Transaksi
+        </h2>
+
+      </div>
+
+      <button
+        class="close-btn"
+        data-close="tradingModal">
+        ×
+      </button>
+
+    </div>
+
+
+    <form id="tradingForm">
+
+      <input
+        type="hidden"
+        name="id">
+
+
+      <label>
+
+        Pair
+
+        <input
+          type="text"
+          name="pair"
+          maxlength="20"
+          placeholder="Contoh: XAUUSD"
+          required>
+
+      </label>
+
+
+      <label>
+
+        Posisi
+
+        <select name="side">
+
+          <option value="Buy">
+            Buy
+          </option>
+
+          <option value="Sell">
+            Sell
+          </option>
+
+        </select>
+
+      </label>
+
+
+      <label>
+
+        Hasil
+
+        <select name="result">
+
+          <option value="profit">
+            Profit
+          </option>
+
+          <option value="loss">
+            Loss
+          </option>
+
+        </select>
+
+      </label>
+
+
+      <label>
+
+        Nominal
+
+        <input
+          type="number"
+          name="amount"
+          min="0.01"
+          step="0.01"
+          placeholder="Contoh: 15"
+          required>
+
+        <small class="form-help">
+          Nominal dalam USD.
+        </small>
+
+      </label>
+
+
+      <label>
+
+        Tanggal
+
+        <input
+          type="date"
+          name="date"
+          required>
+
+      </label>
+
+
+      <button
+        class="primary-btn full"
+        type="submit">
+        Simpan Transaksi
+      </button>
+
+    </form>
+
+  </div>
+
+</div>
+
+
+<!-- ================= INVESTMENT MODAL ================= -->
+
+<div
+  class="modal"
+  id="investmentModal">
+
+  <div
+    class="modal-backdrop"
+    data-close="investmentModal">
+  </div>
+
+  <div class="modal-panel">
+
+    <div class="modal-head">
+
+      <div>
+
+        <p class="eyebrow">
+          Portfolio
+        </p>
+
+        <h2 id="investmentModalTitle">
+          Tambah Investasi
+        </h2>
+
+      </div>
+
+      <button
+        class="close-btn"
+        data-close="investmentModal">
+        ×
+      </button>
+
+    </div>
+
+
+    <form id="investmentForm">
+
+      <input
+        type="hidden"
+        name="id">
+
+
+      <label>
+
+        Instrumen
+
+        <input
+          type="text"
+          name="name"
+          maxlength="30"
+          placeholder="Contoh: BBCA"
+          required>
+
+        <small class="form-help">
+          Satu instrumen hanya memiliki satu posisi portfolio.
+        </small>
+
+      </label>
+
+
+      <label>
+
+        Modal Instrumen
+
+        <input
+          type="number"
+          name="capital"
+          min="0"
+          step="1000"
+          placeholder="Contoh: 2000000"
+          required>
+
+        <small class="form-help">
+          Modal khusus instrumen ini.
+        </small>
+
+      </label>
+
+
+      <label>
+
+        Perubahan
+
+        <input
+          type="number"
+          name="returnPct"
+          step="0.01"
+          placeholder="Contoh: 4.25"
+          required>
+
+        <small class="form-help">
+          Masukkan 4.25 untuk +4.25%, atau -2.5 untuk -2.5%.
+        </small>
+
+      </label>
+
+
+      <label>
+
+        Tanggal Update
+
+        <input
+          type="date"
+          name="date"
+          required>
+
+      </label>
+
+
+      <button
+        class="primary-btn full"
+        type="submit">
+        Simpan Investasi
+      </button>
+
+    </form>
+
+  </div>
+
+</div>
+
+
+<!-- ================= CONFIRM MODAL ================= -->
+
+<div
+  class="modal"
+  id="confirmModal">
+
+  <div
+    class="modal-backdrop"
+    data-close="confirmModal">
+  </div>
+
+  <div class="modal-panel confirm-panel">
+
+    <div class="modal-head">
+
+      <div>
+
+        <p class="eyebrow">
+          Konfirmasi
+        </p>
+
+        <h2>
+          Hapus data?
+        </h2>
+
+      </div>
+
+      <button
+        class="close-btn"
+        data-close="confirmModal">
+        ×
+      </button>
+
+    </div>
+
+    <p class="confirm-text">
+      Data yang dihapus tidak dapat dikembalikan.
+    </p>
+
+    <div class="confirm-actions">
+
+      <button
+        class="secondary-btn"
+        data-close="confirmModal">
+        Batal
+      </button>
+
+      <button
+        class="danger-btn"
+        id="confirmDeleteBtn">
+        Hapus
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
